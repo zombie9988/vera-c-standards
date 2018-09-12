@@ -8,6 +8,8 @@ int main(int argc, char **argv) {
 	int sdfsdgdffgdf;
 	int goodWordVery;
 	int good;
+	int ggfdgfdgsBadThenGood
+	int goodThanGdsfdfsdfdsf
 	int word;
 	int Word;
     return 0;

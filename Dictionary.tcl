@@ -19,19 +19,19 @@ foreach fileName [getSourceFileNames] {
     set value [lindex $token 0]
     set name [lindex $token 3]
     set line [lindex $token 1]
-    set badWord 1
     #puts "$name - name of token"
 
     if {$name == "identifier"} {
+      set goodWords 0
       set pieces [regexp -all -inline {[a-z]+|[A-Z][a-z]*} $value]
       foreach piece $pieces {
         foreach goodWord $splittedDictionary {
           if {$goodWord == [string tolower $piece]} {
-            set badWord 0
+            set goodWords [expr {$goodWords + 1}]
           }
         }
       }
-      if {$badWord == 1} {
+      if {$goodWords != [llength $pieces]} {
       report $fileName $line "Identificator '${value}' is not allowed"
       }
     }
